@@ -13,6 +13,8 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     int mindistance = 3;
 
+    public Animator animator;
+    public Animator ManAnimator;
 
     private Vector3 lastMousePosition;
 
@@ -21,6 +23,15 @@ public class CameraController : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             lastMousePosition = Input.mousePosition;
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (animator != null)
+            {
+                animator.SetTrigger("do");
+                ManAnimator.SetTrigger("do");
+            }
         }
 
         if (Input.GetMouseButton(1))
